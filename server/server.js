@@ -8,12 +8,18 @@ const routes = require('./routes');
 const cors = require('cors');
 
 app.use(cors());
+app.get('/', (req, res) => {
+    res.json({
+        message: 'There is some response'
+    })
+})
 app.use("/api", routes);
 
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Internal Server Error');
+});
 
-app.get('/' , async (req, res, next) => {
-    res.send(<h3>Hello World</h3>)
-} )
 
 
 (
