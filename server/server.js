@@ -8,7 +8,12 @@ const routes = require('./routes');
 const cors = require('cors');
 
 app.use(cors());
-app.use("/", routes);
+app.use("/api", routes);
+
+
+app.get('/' , async (req, res, next) => {
+    res.send(<h3>Hello World</h3>)
+} )
 
 
 (
