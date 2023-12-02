@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
         message: 'There is some response'
     })
 })
-app.use("/api", routes);
+app.use("/", routes);
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
